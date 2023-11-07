@@ -229,6 +229,8 @@ public class Sort{
         }else{
           j = j-1;
         }
+        if(iteracion%framerate == 0) update();
+        iteracion = (iteracion+1)%framerate;
       }
       if (numeros[i]>numeros[a]){
         i =i-1;
@@ -243,17 +245,18 @@ public class Sort{
         int h = numeros.length/2;
         while(h > 0){
             for(i = h; i < numeros.length; i++){
-                v = numeros[i];
-                j = i;
-                while(j >= h && numeros[j - h] > v){
-                    swap(j, j-h);
-                    j = j-h;
-                }
-                numeros[j] = v;
+              v = numeros[i];
+              j = i;
+              while(j >= h && numeros[j - h] > v){
+                swap(j, j-h);
+                j = j-h;
+              }
+              numeros[j] = v;
+              if(iteracion%framerate == 0) update();
+              iteracion = (iteracion+1)%framerate;
             }
             h = h/2;
-            if(iteracion%framerate == 0) update();
-            iteracion = (iteracion+1)%framerate;
+            
         }
     }    
 
