@@ -161,7 +161,7 @@ public class Sort{
       if(metodo.equals("insertion"))
         insertionSort();
       if(metodo.equals("merge"))
-        mergeSort();
+        mergeSort(numeros);
       if(metodo.equals("quick"))
         quickSort();
       if(metodo.equals("shell"))
@@ -205,8 +205,53 @@ public class Sort{
         }
     }
 
-    private void mergeSort(){
-      System.out.println("Falta implementar");
+    private void mergeSort(int[] arr){
+      System.out.println("Entro a merge sort");
+      if (arr.length <= 1) {
+        return;
+      }
+      int micha = arr.length / 2;
+      int[] izq = new int[micha];
+      int[] der = new int[arr.length - micha];
+
+      //Separamos en subarreglos
+      System.arraycopy(arr, 0, izq, 0, micha);
+      System.arraycopy(arr, micha, der, 0, arr.length-micha);
+
+      mergeSort(izq);
+      mergeSort(der);
+
+      realMerge(arr, izq, der);
+
+    }
+
+    private void realMerge(int[] arr, int[] izq, int[] der){
+      System.out.println("Entro a real merge");
+      int i = 0;
+      int j = 0;
+      int k = 0;
+
+      while (i<izq.length && j<der.length) {
+        System.out.println("Entro al while de real merge");
+        if (izq[i]<=der[j]) {
+          arr[k] = izq[i];
+          i++;
+          k++;
+        }else{
+          arr[k]=der[j];
+          j++;
+          k++;
+        }
+      }
+      while (i< izq.length) {
+        arr[k]=izq[i];
+        i++;
+        k++;
+      }
+      while (j<der.length) {
+        arr[k]=der[i];
+      }
+
     }
 
     private void quickSort(){
