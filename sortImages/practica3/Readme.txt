@@ -1,3 +1,9 @@
+Caballero Jiménez Oscar Emilio 315008708
+@DexenRoss
+
+PD: merge, no me salio :c
+
+
 /***********************
   Utilizando terminal
 ************************/
