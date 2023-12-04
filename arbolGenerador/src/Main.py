@@ -4,6 +4,7 @@ from Vertice import Vertice
 from Arista import Arista
 import queue
 import csv
+import sys
 
 def BFS(grafica, primer_nodo):
     arbol = Arbol(grafica.lista_nodos)
@@ -73,26 +74,11 @@ if __name__=="__main__":
     n_inicio = 0
     n_fin = 0
     peso = 0
-
-    #for i in s.split(","):
-    #    n[i] = Vertice(i)
-    #    myGrafica.add_nodo(i,n[i])
-    #    print(i,myGrafica.lista_nodos[i].valor)
-    
-    #i = "1,2:4"
-
-    #for i in linea: //Esta de mas
-    #n_inicio = i.split(",")[0]
-    #aux = i.split(",")[1]
-    #n_fin = aux.split(":")[0]
-    #peso = aux.split(":")[1]
-    #arista = Arista(n_inicio,n_fin,peso)
-    #myGrafica.add_arista(arista)
-    #n[n_inicio].add_arista(n_fin,peso)
+    fileName = sys.argv[1]
 
     
 
-    llenar_graf('grafica.txt',n,myGrafica,n_inicio,n_fin,peso)
+    llenar_graf(fileName,n,myGrafica,n_inicio,n_fin,peso)
     #leer('grafica.txt')
     #for i in n:
      #   print(n)
